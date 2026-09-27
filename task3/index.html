@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Task 3 — One markup, three layouts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../global.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="../index.html">Home</a>
+    <a href="../task1/index.html">Task 1 — Grid composition</a>
+    <a href="../task2/index.html">Task 2 — Flexbox library</a>
+    <a href="index.html" aria-current="page">Task 3 — One markup, three layouts</a>
+  </nav>
+
+  <main class="container">
+    <h1 class="page-title">Task 3. Three layouts, one markup</h1>
+    <p class="page-lede">
+      The article markup below never changes. Only which of the three radio
+      buttons is checked changes — that single piece of state is what
+      switches the container between grid, list and magazine mode. No
+      JavaScript is used (the assignment rules forbid it); the CSS
+      <code>:checked</code> selector does the job a class-toggle script
+      would otherwise do.
+    </p>
+
+    <!-- the "single class on the container" is driven by which radio
+         below is :checked — see style.css. The inputs sit as direct
+         siblings of .items so the ~ combinator can reach it; the labels
+         (linked by "for", not by position) can live in their own wrapper. -->
+    <input type="radio" name="view" id="view-grid" checked hidden />
+    <input type="radio" name="view" id="view-list" hidden />
+    <input type="radio" name="view" id="view-magazine" hidden />
+    <div class="view-switcher">
+      <label for="view-grid">Grid</label>
+      <label for="view-list">List</label>
+      <label for="view-magazine">Magazine</label>
+    </div>
+
+    <div class="items">
+      <article class="item">
+        <img class="item__media" src="https://placehold.co/400x260" alt="" />
+        <div class="item__body">
+          <div class="item__text-group">
+            <h3 class="item__title">Lead story: a very long headline that has to survive every layout</h3>
+          <p class="item__text">
+            This is the lead item. In magazine mode it is given more space
+            than the others; in grid and list mode it behaves exactly like
+            every other card, which is the whole point of sharing one markup.
+          </p>
+          </div>
+          <time class="item__date">Sep 1</time>
+        </div>
+      </article>
+
+      <article class="item">
+        <img class="item__media" src="https://placehold.co/400x260" alt="" />
+        <div class="item__body">
+          <div class="item__text-group">
+            <h3 class="item__title">Short title</h3>
+          <p class="item__text">Two sentences of body copy. Short on purpose.</p>
+          </div>
+          <time class="item__date">Sep 2</time>
+        </div>
+      </article>
+
+      <article class="item">
+        <img class="item__media" src="https://placehold.co/400x260" alt="" />
+        <div class="item__body">
+          <div class="item__text-group">
+            <h3 class="item__title">A moderately descriptive product title</h3>
+          <p class="item__text">
+            A medium-length description that spans a couple of lines so the
+            card heights differ from item to item.
+          </p>
+          </div>
+          <time class="item__date">Sep 3</time>
+        </div>
+      </article>
+
+      <article class="item">
+        <img class="item__media" src="https://placehold.co/400x260" alt="" />
+        <div class="item__body">
+          <div class="item__text-group">
+            <h3 class="item__title">Another item</h3>
+          <p class="item__text">
+            Longer description again, this time going on for a bit longer
+            than the previous card to stress-test the equal-height rules.
+          </p>
+          </div>
+          <time class="item__date">Sep 4</time>
+        </div>
+      </article>
+
+      <article class="item">
+        <img class="item__media" src="https://placehold.co/400x260" alt="" />
+        <div class="item__body">
+          <div class="item__text-group">
+            <h3 class="item__title">Fifth item title</h3>
+          <p class="item__text">Compact copy.</p>
+          </div>
+          <time class="item__date">Sep 5</time>
+        </div>
+      </article>
+
+      <article class="item">
+        <img class="item__media" src="https://placehold.co/400x260" alt="" />
+        <div class="item__body">
+          <div class="item__text-group">
+            <h3 class="item__title">Sixth item, with a longer title than most of the others</h3>
+          <p class="item__text">Short text this time.</p>
+          </div>
+          <time class="item__date">Sep 6</time>
+        </div>
+      </article>
+
+      <article class="item">
+        <img class="item__media" src="https://placehold.co/400x260" alt="" />
+        <div class="item__body">
+          <div class="item__text-group">
+            <h3 class="item__title">Item seven</h3>
+          <p class="item__text">
+            A description of average length, nothing unusual about this one.
+          </p>
+          </div>
+          <time class="item__date">Sep 7</time>
+        </div>
+      </article>
+
+      <article class="item">
+        <img class="item__media" src="https://placehold.co/400x260" alt="" />
+        <div class="item__body">
+          <div class="item__text-group">
+            <h3 class="item__title">Eighth</h3>
+          <p class="item__text">Short.</p>
+          </div>
+          <time class="item__date">Sep 8</time>
+        </div>
+      </article>
+
+      <article class="item">
+        <img class="item__media" src="https://placehold.co/400x260" alt="" />
+        <div class="item__body">
+          <div class="item__text-group">
+            <h3 class="item__title">Ninth product entry</h3>
+          <p class="item__text">
+            Medium description, roughly two lines when the card is narrow.
+          </p>
+          </div>
+          <time class="item__date">Sep 9</time>
+        </div>
+      </article>
+
+      <article class="item">
+        <img class="item__media" src="https://placehold.co/400x260" alt="" />
+        <div class="item__body">
+          <div class="item__text-group">
+            <h3 class="item__title">Tenth</h3>
+          <p class="item__text">Another short one.</p>
+          </div>
+          <time class="item__date">Sep 10</time>
+        </div>
+      </article>
+
+      <article class="item">
+        <img class="item__media" src="https://placehold.co/400x260" alt="" />
+        <div class="item__body">
+          <div class="item__text-group">
+            <h3 class="item__title">Eleventh entry with a slightly longer title</h3>
+          <p class="item__text">
+            Longer body copy again, to keep the mix of lengths realistic
+            across the whole set of twelve items.
+          </p>
+          </div>
+          <time class="item__date">Sep 11</time>
+        </div>
+      </article>
+
+      <article class="item">
+        <img class="item__media" src="https://placehold.co/400x260" alt="" />
+        <div class="item__body">
+          <div class="item__text-group">
+            <h3 class="item__title">Twelfth and last item</h3>
+          <p class="item__text">Closing entry, short description.</p>
+          </div>
+          <time class="item__date">Sep 12</time>
+        </div>
+      </article>
+    </div>
+  </main>
+</body>
+</html>

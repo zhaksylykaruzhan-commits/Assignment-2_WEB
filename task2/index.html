@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Task 2 — Component library</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../global.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="../index.html">Home</a>
+    <a href="../task1/index.html">Task 1 — Grid composition</a>
+    <a href="index.html" aria-current="page">Task 2 — Flexbox library</a>
+    <a href="../task3/index.html">Task 3 — One markup, three layouts</a>
+  </nav>
+
+  <main class="container">
+    <h1 class="page-title">Task 2. Component library (Flexbox)</h1>
+    <p class="page-lede">
+      Five components, one stylesheet, Flexbox only. Resize the window or
+      lengthen the text in any component — nothing breaks.
+    </p>
+
+    <!-- 1. Navigation bar ------------------------------------------------ -->
+    <section class="component">
+      <h2>1. Navigation bar</h2>
+      <header class="navbar">
+        <span class="navbar__logo">Acme</span>
+        <nav class="navbar__links">
+          <a href="#">Home</a>
+          <a href="#">Products</a>
+          <a href="#">A much longer navigation link</a>
+          <a href="#">Pricing</a>
+          <a href="#">Contact</a>
+        </nav>
+        <div class="navbar__actions">
+          <button class="btn btn--ghost">Log in</button>
+          <button class="btn btn--primary">Sign up</button>
+        </div>
+      </header>
+    </section>
+
+    <!-- 2. Card row -------------------------------------------------------->
+    <section class="component">
+      <h2>2. Card row</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Starter</h3>
+          <p>Short description.</p>
+          <button class="btn btn--primary">Choose</button>
+        </article>
+        <article class="card">
+          <h3>Growth</h3>
+          <p>
+            A noticeably longer description that talks about several
+            benefits, so the card has to grow to fit the text without
+            breaking the row's alignment.
+          </p>
+          <button class="btn btn--primary">Choose</button>
+        </article>
+        <article class="card">
+          <h3>Scale</h3>
+          <p>
+            An even longer piece of body copy, written to simulate real
+            marketing copy that a client might paste in at the last
+            minute before a deadline, to make sure the layout survives it.
+          </p>
+          <button class="btn btn--primary">Choose</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. Pagination -------------------------------------------------------->
+    <section class="component">
+      <h2>3. Pagination</h2>
+      <div class="pagination">
+        <button class="btn btn--ghost pagination__arrow" aria-label="Previous page">&larr;</button>
+        <div class="pagination__pages">
+          <button class="btn btn--ghost">1</button>
+          <button class="btn btn--ghost pagination__current">2</button>
+          <button class="btn btn--ghost">3</button>
+          <button class="btn btn--ghost">4</button>
+        </div>
+        <button class="btn btn--ghost pagination__arrow" aria-label="Next page">&rarr;</button>
+        <span class="pagination__count">128 results</span>
+      </div>
+    </section>
+
+    <!-- 4. Comment block -------------------------------------------------------->
+    <section class="component">
+      <h2>4. Comment block</h2>
+      <div class="comment">
+        <img class="comment__avatar" src="https://placehold.co/56x56" alt="" />
+        <div class="comment__body">
+          <p class="comment__author">Aigerim K.</p>
+          <p class="comment__text">
+            This is a long comment written to prove that the text wraps
+            neatly beside the avatar and never slides underneath it, no
+            matter how many lines it ends up taking on a narrow screen.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Pricing table -------------------------------------------------------->
+    <section class="component">
+      <h2>5. Pricing table</h2>
+      <div class="pricing">
+        <article class="plan">
+          <h3>Basic</h3>
+          <p class="plan__price">$9<span>/mo</span></p>
+          <ul class="plan__features">
+            <li>1 project</li>
+            <li>Community support</li>
+          </ul>
+          <button class="btn btn--ghost">Choose Basic</button>
+        </article>
+        <article class="plan plan--recommended">
+          <p class="plan__badge">Recommended</p>
+          <h3>Pro</h3>
+          <p class="plan__price">$29<span>/mo</span></p>
+          <ul class="plan__features">
+            <li>Unlimited projects</li>
+            <li>Priority support</li>
+            <li>Team roles</li>
+            <li>Advanced analytics</li>
+          </ul>
+          <button class="btn btn--primary">Choose Pro</button>
+        </article>
+        <article class="plan">
+          <h3>Team</h3>
+          <p class="plan__price">$79<span>/mo</span></p>
+          <ul class="plan__features">
+            <li>Everything in Pro</li>
+            <li>SSO</li>
+          </ul>
+          <button class="btn btn--ghost">Choose Team</button>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,167 @@
+/* ============================================================
+   Task 3 — One markup, three layouts
+   The container's mode is driven by which hidden radio input is
+   :checked (no JavaScript, per the assignment rules). CSS Grid
+   arranges the container in every mode; Flexbox arranges the
+   inside of each .item card.
+   ============================================================ */
+
+.view-switcher {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.view-switcher label {
+  padding: var(--space-xs) var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  cursor: pointer;
+  user-select: none;
+}
+
+#view-grid:checked ~ .view-switcher label[for="view-grid"],
+#view-list:checked ~ .view-switcher label[for="view-list"],
+#view-magazine:checked ~ .view-switcher label[for="view-magazine"] {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+}
+
+/* --- the card itself: Flexbox, shared by all three modes --- */
+
+.item {
+  display: flex;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.item__media {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.item__body {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: var(--space-md);
+  gap: var(--space-sm);
+}
+
+.item__text-group {
+  min-width: 0;
+}
+
+.item__title {
+  font-size: 1rem;
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.item__text {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.item__date {
+  color: var(--color-text-muted);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Mode 1 — Grid: a card grid, column count follows window width
+   ============================================================ */
+
+#view-grid:checked ~ .items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-md);
+}
+
+#view-grid:checked ~ .items .item {
+  flex-direction: column;
+}
+
+#view-grid:checked ~ .items .item__body {
+  flex-direction: column;
+}
+
+#view-grid:checked ~ .items .item__date {
+  margin-top: auto; /* pinned to the bottom of the card */
+}
+
+/* ============================================================
+   Mode 2 — List: one row per item, image left, date right edge
+   ============================================================ */
+
+#view-list:checked ~ .items {
+  display: grid;
+  grid-template-columns: 1fr; /* single column of full-width rows */
+  gap: var(--space-sm);
+}
+
+#view-list:checked ~ .items .item {
+  flex-direction: row;
+  align-items: center;
+}
+
+#view-list:checked ~ .items .item__media {
+  width: clamp(80px, 14vw, 140px);
+  height: 100%;
+  aspect-ratio: auto;
+  flex-shrink: 0;
+}
+
+#view-list:checked ~ .items .item__body {
+  flex-direction: row;
+  align-items: center;
+}
+
+#view-list:checked ~ .items .item__text-group {
+  flex: 1 1 auto;
+}
+
+#view-list:checked ~ .items .item__date {
+  margin-left: auto; /* right edge of the row */
+}
+
+/* ============================================================
+   Mode 3 — Magazine: one lead item, the rest fill in around it
+   ============================================================ */
+
+#view-magazine:checked ~ .items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(160px, auto);
+  gap: var(--space-md);
+}
+
+#view-magazine:checked ~ .items .item {
+  flex-direction: column;
+}
+
+#view-magazine:checked ~ .items .item__body {
+  flex-direction: column;
+}
+
+#view-magazine:checked ~ .items .item__date {
+  margin-top: auto;
+}
+
+/* the lead item spans two columns and two rows; everything else
+   simply flows into the remaining grid cells automatically */
+#view-magazine:checked ~ .items .item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+#view-magazine:checked ~ .items .item:first-child .item__title {
+  font-size: 1.3rem;
+}

@@ -1,0 +1,224 @@
+/* ============================================================
+   Task 2 — Component library
+   Flexbox only. No Grid, no floats, no fixed widths/heights for
+   layout (the avatar keeps its own intrinsic size, per the brief).
+   ============================================================ */
+
+.component {
+  margin-bottom: var(--space-xl);
+}
+
+.component h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-text-muted);
+}
+
+.btn {
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  padding: var(--space-xs) var(--space-md);
+  font: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.btn--ghost {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+/* 1. Navbar --------------------------------------------------- */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.navbar__logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.navbar__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  flex: 1 1 auto; /* takes the middle space, wraps if it must */
+}
+
+.navbar__links a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.navbar__actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-left: auto; /* keeps the buttons pinned to the right edge */
+}
+
+/* 2. Cards ------------------------------------------------------ */
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: stretch; /* equal height across the row */
+}
+
+.card {
+  flex: 1 1 240px; /* grow/shrink, wraps below ~240px */
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+}
+
+.card p {
+  flex: 1 1 auto; /* absorbs the extra text so buttons still align */
+  color: var(--color-text-muted);
+}
+
+.card .btn {
+  align-self: flex-start;
+  margin-top: auto; /* every button lands on the same line */
+}
+
+/* 3. Pagination --------------------------------------------------- */
+
+.pagination {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.pagination__pages {
+  display: flex;
+  gap: var(--space-xs);
+  margin-inline: auto; /* centers the page numbers between the arrows */
+}
+
+.pagination__current {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+.pagination__count {
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+/* 4. Comment block --------------------------------------------------- */
+
+.comment {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+}
+
+.comment__avatar {
+  width: 56px; /* the avatar's own intrinsic size — explicitly allowed */
+  height: 56px;
+  border-radius: 50%;
+  flex-shrink: 0; /* never lets the text squeeze it */
+}
+
+.comment__body {
+  flex: 1 1 auto;
+  min-width: 0; /* lets long text wrap instead of overflowing */
+}
+
+.comment__author {
+  font-weight: 700;
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.comment__text {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+/* 5. Pricing table --------------------------------------------------- */
+
+.pricing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  align-items: flex-end; /* lets the recommended plan sit taller, not stretched */
+}
+
+.plan {
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  text-align: center;
+}
+
+.plan--recommended {
+  border-color: var(--color-primary);
+  /* taller than its neighbors purely from extra padding — no fixed height */
+  padding-block: calc(var(--space-md) + var(--space-lg));
+}
+
+.plan__badge {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-xs) 0;
+}
+
+.plan__price {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: var(--space-xs) 0;
+}
+
+.plan__price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.plan__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-md) 0;
+  flex: 1 1 auto; /* pushes every button to the same baseline */
+  color: var(--color-text-muted);
+}
+
+.plan__features li {
+  padding-block: var(--space-xs);
+  border-top: 1px solid var(--color-border);
+}
+
+.plan .btn {
+  margin-top: auto;
+}

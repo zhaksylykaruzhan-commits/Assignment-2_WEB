@@ -1,0 +1,96 @@
+/* ============================================================
+   global.css
+   Shared palette, typography and spacing scale for Assignment #2.
+   Every task page (task1, task2, task3) links this file first,
+   then its own stylesheet, so the whole library shares one look.
+   ============================================================ */
+
+:root {
+  /* --- color palette --- */
+  --color-bg: #f7f7f9;
+  --color-surface: #ffffff;
+  --color-text: #1b1d23;
+  --color-text-muted: #6b7078;
+  --color-border: #e2e4e9;
+
+  --color-primary: #2b4bcc;
+  --color-primary-dark: #1d359b;
+  --color-accent: #f2c200;
+  --color-danger: #d1261b;
+  --color-ink: #111318;
+  --color-light: #eceeef;
+
+  /* --- spacing scale (fluid, based on rem so it scales with the page) --- */
+  --space-xs: 0.4rem;
+  --space-sm: 0.8rem;
+  --space-md: 1.6rem;
+  --space-lg: 2.4rem;
+  --space-xl: 4rem;
+
+  /* --- typography --- */
+  --font-body: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-size-base: clamp(1rem, 0.9rem + 0.3vw, 1.125rem);
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  margin: 0 0 var(--space-sm) 0;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+.container {
+  width: min(94vw, 1200px);
+  margin-inline: auto;
+  padding-block: var(--space-lg);
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  font-weight: 600;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--color-text-muted);
+}
+
+.site-nav a[aria-current="page"] {
+  color: var(--color-primary);
+}
+
+.page-title {
+  margin-bottom: var(--space-xs);
+}
+
+.page-lede {
+  color: var(--color-text-muted);
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
+  max-width: 60ch;
+}
