@@ -1,6 +1,6 @@
 # Assignment #2 — Advanced CSS (Flexbox & Grid)
 
-**Student:** Ravil, Group IT2511
+**Student:** Zhaksylyk Aruzhan, Group IT2511
 
 Open `index.html` in a browser, or open any of:
 
